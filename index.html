@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>皮妞妞 · 萌宠分享与萌宠小游戏</title>
+<meta name="description" content="皮妞妞：萌宠分享、萌宠短视频和好用的小工具。《萌宠来接你下班》《骑着萌宠去上班》可在线试玩。">
+<meta name="theme-color" content="#CDEBDF">
+<style>
+:root{
+  --mint:#CDEBDF;     /* 薄荷底 */
+  --mint-d:#A9D9C6;
+  --orange:#F0832A;   /* 橘猫 */
+  --cocoa:#3A2A1F;    /* 可可棕 */
+  --pink:#F5A9B0;     /* 肉垫粉 */
+  --milk:#FFFCF5;     /* 奶白 */
+  --round:"Yuanti SC","PingFang SC","Hiragino Maru Gothic ProN","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--round);background:var(--mint);color:var(--cocoa);line-height:1.75;-webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(circle at 1px 1px,rgba(58,42,31,.08) 1.5px,transparent 0);background-size:22px 22px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+
+nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+.logo{font-weight:800;font-size:22px;text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo .paw{width:30px;height:30px}
+nav ul{display:flex;gap:20px;list-style:none;font-size:15px;font-weight:600}
+nav ul a{text-decoration:none}
+nav ul a:hover{color:var(--orange)}
+
+/* 首屏 */
+.hero{text-align:center;padding:36px 0 30px}
+.hero h1{font-size:clamp(46px,9vw,100px);font-weight:900;line-height:1.05;letter-spacing:-.01em;position:relative;display:inline-block}
+.hero h1 .ear{position:absolute;top:-.36em;width:.5em;height:.5em;background:var(--orange);clip-path:polygon(50% 0,100% 100%,0 100%)}
+.hero h1 .ear.l{left:.15em;transform:rotate(-14deg)}
+.hero h1 .ear.r{right:.15em;transform:rotate(14deg)}
+.hero h1 span.o{color:var(--orange)}
+.hero p{max-width:30em;margin:18px auto 0;font-size:18px}
+.pets{display:flex;justify-content:center;align-items:flex-end;gap:clamp(4px,2vw,22px);margin-top:34px}
+.pets img{height:clamp(90px,16vw,150px);width:auto;transition:transform .3s cubic-bezier(.3,1.6,.5,1)}
+.pets img:hover{transform:translateY(-12px) rotate(-4deg)}
+.ground{height:18px;background:var(--mint-d);border-radius:50%;max-width:620px;margin:-8px auto 0}
+
+section{padding:60px 0}
+h2{font-size:30px;font-weight:900;display:flex;align-items:center;gap:10px;margin-bottom:6px}
+h2 svg{width:28px;height:28px;flex:none}
+section > p.sub{margin-bottom:34px;font-size:16px;opacity:.85}
+
+/* 游戏：宠物名牌 */
+.tags{display:grid;grid-template-columns:1fr 1fr;gap:40px 34px}
+.tag{
+  background:var(--milk);border-radius:28px 28px 28px 28px;padding:44px 24px 26px;position:relative;
+  box-shadow:0 6px 0 var(--cocoa);border:3px solid var(--cocoa);
+  display:grid;grid-template-columns:150px 1fr;gap:20px;align-items:start;
+}
+.tag::before{ /* 名牌挂孔 */
+  content:"";position:absolute;top:14px;left:50%;width:18px;height:18px;margin-left:-9px;border-radius:50%;background:var(--mint);border:3px solid var(--cocoa)}
+.tag::after{ /* 挂绳 */
+  content:"";position:absolute;top:-34px;left:50%;width:3px;height:50px;background:var(--orange);transform:rotate(8deg);transform-origin:bottom}
+.tag:nth-child(1){transform:rotate(-1.5deg)}
+.tag:nth-child(2){transform:rotate(1.5deg)}
+.tag .shot{aspect-ratio:9/16;border-radius:16px;overflow:hidden;border:3px solid var(--cocoa)}
+.tag img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.tag h3{font-size:24px;font-weight:900;line-height:1.3}
+.tag .meta{display:inline-block;background:var(--pink);font-size:13px;font-weight:700;padding:2px 12px;border-radius:99px;margin:8px 0 12px}
+.tag p{font-size:15px;margin-bottom:18px}
+.btn{display:inline-block;background:var(--orange);color:var(--milk);font-weight:800;font-size:17px;text-decoration:none;padding:10px 24px;border-radius:99px;box-shadow:0 4px 0 var(--cocoa);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(2px);box-shadow:0 2px 0 var(--cocoa)}
+.btn:active{transform:translateY(4px);box-shadow:none}
+.alt{display:inline-block;margin-left:12px;font-size:13px;font-weight:600}
+
+/* 在做的事 */
+.things{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.thing{background:var(--milk);border-radius:22px;padding:24px 22px;border:3px solid var(--cocoa)}
+.thing .ico{width:44px;height:44px;border-radius:50%;background:var(--pink);display:grid;place-items:center;margin-bottom:12px;font-size:22px}
+.thing h3{font-size:20px;font-weight:900;margin-bottom:6px}
+.thing p{font-size:15px}
+
+footer{padding:34px 0 50px;font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-weight:600;opacity:.75}
+footer a{text-decoration:none}
+footer a:hover{color:var(--orange)}
+
+@media (max-width:820px){
+  .tags{grid-template-columns:1fr;gap:56px}
+  .tag{grid-template-columns:118px 1fr;padding:40px 18px 22px}
+  .things{grid-template-columns:1fr}
+  nav ul{gap:12px;font-size:14px}
+}
+@media (max-width:420px){
+  .tag{grid-template-columns:1fr}
+  .tag .shot{max-width:180px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="paw" viewBox="0 0 64 64"><g fill="currentColor"><ellipse cx="32" cy="42" rx="15" ry="13"/><circle cx="14" cy="26" r="7"/><circle cx="25" cy="14" r="7"/><circle cx="39" cy="14" r="7"/><circle cx="50" cy="26" r="7"/></g></symbol>
+</svg>
+<div class="wrap">
+  <nav aria-label="主导航">
+    <a class="logo" href="/"><svg class="paw" style="color:var(--orange)"><use href="#paw"/></svg>皮妞妞</a>
+    <ul>
+      <li><a href="#games">小游戏</a></li>
+      <li><a href="#things">在做的事</a></li>
+      <li><a href="https://puck-muling.github.io/">主站</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <h1>今天也被<span class="o">毛孩子</span><br>接送上下班</h1>
+    <p>我是皮妞妞。分享萌宠日常、做萌宠短视频，也收集好用的小工具。还做了两款萌宠通勤小游戏，早上骑它去上班，晚上它来接你回家。</p>
+    <div class="pets">
+      <img src="img/frog_front.png" alt="戴斗笠的小青蛙" width="289" height="300">
+      <img src="img/cat_front.png" alt="系红围巾的橘猫" width="244" height="300">
+      <img src="img/gpanda_front.png" alt="大熊猫" width="226" height="300">
+      <img src="img/manul_front.png" alt="兔狲" width="284" height="300">
+    </div>
+    <div class="ground" aria-hidden="true"></div>
+  </header>
+
+  <section id="games" aria-labelledby="games-h">
+    <h2 id="games-h"><svg style="color:var(--orange)"><use href="#paw"/></svg>点开就能玩</h2>
+    <p class="sub">不用下载、不用登录。手机竖屏玩最顺手。</p>
+    <div class="tags">
+      <article class="tag">
+        <div class="shot"><img src="img/cover-ride-pet-to-work.jpg" alt="骑着萌宠去上班游戏首页：三枚彩蛋和六种可孵出的萌宠" loading="lazy" width="480" height="1039"></div>
+        <div>
+          <h3>骑着萌宠去上班</h3>
+          <span class="meta">早上 8:52 · 约 30 秒一局</span>
+          <p>连点蛋壳孵出今天的坐骑：橘猫、大熊猫、兔狲还是小毛驴？骑着它吃冰美式、躲“在吗？”消息，赶在电梯关门前打卡，最后领一张骑宠工牌。</p>
+          <a class="btn" href="https://pi-niuniu.github.io/ride-pet-to-work/">去上班</a><a class="alt" href="https://github.com/pi-niuniu/ride-pet-to-work">源码</a>
+        </div>
+      </article>
+      <article class="tag">
+        <div class="shot"><img src="img/cover-pet-pickup-after-work.jpg" alt="萌宠来接你下班游戏首页：夜晚写字楼门口，选择女生或男生" loading="lazy" width="480" height="1039"></div>
+        <div>
+          <h3>萌宠来接你下班</h3>
+          <span class="meta">晚上下班 · 约 1 分钟一局</span>
+          <p>大橘猫准时到公司门口接你。一路吃小鱼干、红灯回头自拍、飞越江面放烟花、下雨举尾巴挡雨，到家喂饱它翻肚皮，拍一张合影。</p>
+          <a class="btn" href="https://pi-niuniu.github.io/pet-pickup-after-work/">接我下班</a><a class="alt" href="https://github.com/pi-niuniu/pet-pickup-after-work">源码</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="things" aria-labelledby="things-h">
+    <h2 id="things-h"><svg style="color:var(--orange)"><use href="#paw"/></svg>在做的事</h2>
+    <p class="sub">都和毛孩子有关。</p>
+    <div class="things">
+      <div class="thing"><div class="ico" aria-hidden="true">🐾</div><h3>萌宠分享</h3><p>猫猫狗狗的日常、养宠的小经验，还有路上遇到的可爱瞬间。</p></div>
+      <div class="thing"><div class="ico" aria-hidden="true">🎬</div><h3>萌宠短视频</h3><p>用 AI 给毛孩子拍小剧场：它会说话、会上班，还会来接你回家。</p></div>
+      <div class="thing"><div class="ico" aria-hidden="true">🧰</div><h3>工具使用</h3><p>做图、剪视频、配音用到的好用工具，怎么上手、哪里收费都写清楚。</p></div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 皮妞妞</span>
+    <a href="https://github.com/pi-niuniu">github.com/pi-niuniu</a>
+    <a href="https://puck-muling.github.io/">Muling 主站</a>
+  </footer>
+</div>
+</body>
+</html>
