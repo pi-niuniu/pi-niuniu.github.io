@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>皮妞妞 · 萌宠分享与萌宠小游戏</title>
-<meta name="description" content="皮妞妞：萌宠分享、萌宠短视频和好用的小工具。《骑着萌宠去上班》《萌宠来接你下班》在线试玩。">
+<title>皮妞妞 · 个人主页</title>
+<meta name="description" content="皮妞妞的个人主页：萌宠分享、萌宠短视频、好用的工具，还有两款点开就能玩的萌宠小游戏。">
 <meta name="theme-color" content="#2A3266">
 <style>
 :root{
   --dusk:#2A3266;
-  --peri:#7183D9;
-  --peach:#F7B08A;
   --orange:#F08A3C;
+  --peach:#F7B08A;
   --milk:#FFF8EF;
   --cocoa:#33261E;
   --muted:#7A6A5E;
+  --line:#EEDFCF;
   --round:"Yuanti SC","PingFang SC","Hiragino Maru Gothic ProN","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;
   --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;
 }
@@ -33,71 +33,74 @@ nav ul{display:flex;gap:30px;list-style:none;font-size:15px;font-weight:500}
 nav ul a{text-decoration:none;opacity:.85}
 nav ul a:hover{opacity:1}
 
-/* 首屏：黄昏天空 + 飞奔的大橘猫 */
-.hero{position:relative;min-height:100vh;overflow:hidden;color:#fff;
-  background:linear-gradient(180deg,#232A5C 0%,#3E4C9A 30%,#7C86CF 55%,#E7A6A0 78%,#F8C595 100%)}
-.stars{position:absolute;inset:0;background-image:
-  radial-gradient(1.5px 1.5px at 12% 14%,#fff,transparent),radial-gradient(1px 1px at 28% 8%,#fff,transparent),
-  radial-gradient(1.5px 1.5px at 46% 18%,#fff,transparent),radial-gradient(1px 1px at 63% 6%,#fff,transparent),
-  radial-gradient(1.5px 1.5px at 78% 16%,#fff,transparent),radial-gradient(1px 1px at 90% 9%,#fff,transparent),
-  radial-gradient(1px 1px at 36% 26%,#fff,transparent),radial-gradient(1px 1px at 84% 28%,#fff,transparent);opacity:.75}
+/* 首屏 */
+.hero{position:relative;min-height:100vh;overflow:hidden;color:#fff;background:linear-gradient(180deg,#232A5C 0%,#3E4C9A 30%,#7C86CF 55%,#E7A6A0 78%,#F8C595 100%)}
+.stars{position:absolute;inset:0;background-image:radial-gradient(1.5px 1.5px at 12% 14%,#fff,transparent),radial-gradient(1px 1px at 28% 8%,#fff,transparent),radial-gradient(1.5px 1.5px at 46% 18%,#fff,transparent),radial-gradient(1px 1px at 63% 6%,#fff,transparent),radial-gradient(1.5px 1.5px at 78% 16%,#fff,transparent),radial-gradient(1px 1px at 90% 9%,#fff,transparent),radial-gradient(1px 1px at 36% 26%,#fff,transparent),radial-gradient(1px 1px at 84% 28%,#fff,transparent);opacity:.75}
 .moon{position:absolute;left:47%;top:11%;width:84px;height:84px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#FFF6DC,#F7DFA6 60%,#EBC57E);box-shadow:0 0 80px 20px rgba(255,230,170,.35)}
 .city{position:absolute;left:0;right:0;bottom:0;height:17vh;min-height:110px;background:linear-gradient(180deg,#4A3F78,#2E2752);clip-path:polygon(0 70%,4% 70%,4% 48%,7% 48%,7% 40%,10% 40%,10% 58%,15% 58%,15% 30%,17% 26%,19% 30%,19% 52%,24% 52%,24% 44%,29% 44%,29% 64%,34% 64%,34% 36%,37% 36%,37% 20%,38% 16%,39% 20%,39% 36%,42% 36%,42% 56%,48% 56%,48% 42%,53% 42%,53% 62%,58% 62%,58% 34%,62% 34%,62% 50%,67% 50%,67% 28%,69% 24%,71% 28%,71% 46%,76% 46%,76% 60%,81% 60%,81% 38%,86% 38%,86% 54%,91% 54%,91% 44%,96% 44%,96% 66%,100% 66%,100% 100%,0 100%)}
-.city::before{content:"";position:absolute;inset:-40% 0 0;background:rgba(74,63,120,.35);clip-path:polygon(0 80%,8% 80%,8% 60%,13% 60%,13% 72%,22% 72%,22% 50%,27% 50%,27% 70%,45% 70%,45% 55%,50% 55%,50% 74%,63% 74%,63% 58%,68% 58%,68% 76%,79% 76%,79% 56%,84% 56%,84% 72%,100% 72%,100% 100%,0 100%)}
-.city::after{content:"";position:absolute;inset:0;background-image:radial-gradient(2px 3px at 10% 70%,#FFD48A,transparent),radial-gradient(2px 3px at 19% 50%,#FFD48A,transparent),radial-gradient(2px 3px at 43% 40%,#FFD48A,transparent),radial-gradient(2px 3px at 49% 70%,#FFD48A,transparent),radial-gradient(2px 3px at 67% 45%,#FFD48A,transparent),radial-gradient(2px 3px at 74% 62%,#FFD48A,transparent),radial-gradient(2px 3px at 86% 66%,#FFD48A,transparent),radial-gradient(2px 3px at 30% 62%,#FFD48A,transparent)}
-.hero-in{position:relative;z-index:2;min-height:100vh;display:grid;grid-template-columns:1fr 1.15fr;align-items:center;gap:20px;padding-top:80px;padding-bottom:22vh}
-.hero h1{font-family:var(--round);font-weight:800;font-size:clamp(64px,9vw,132px);line-height:1;letter-spacing:.02em;text-shadow:0 8px 40px rgba(30,20,70,.35)}
-.hero .tag{font-family:var(--round);font-weight:700;font-size:clamp(22px,2.4vw,32px);line-height:1.5;margin:26px 0 18px}
+.hero-in{position:relative;z-index:2;min-height:100vh;display:grid;grid-template-columns:1fr 1.15fr;align-items:center;gap:20px;padding-top:80px;padding-bottom:20vh}
+.hi{font-family:var(--round);font-weight:700;font-size:20px;opacity:.9}
+.hero h1{font-family:var(--round);font-weight:800;font-size:clamp(64px,9vw,132px);line-height:1.05;letter-spacing:.02em;text-shadow:0 8px 40px rgba(30,20,70,.35);margin-top:6px}
+.hero .tag{font-family:var(--round);font-weight:700;font-size:clamp(21px,2.2vw,30px);line-height:1.55;margin:22px 0 16px}
 .hero .tag span{color:#FFD9A8}
 .hero p{max-width:26em;opacity:.9;font-size:16.5px}
-.cta{display:flex;gap:16px;margin-top:36px;flex-wrap:wrap}
+.cta{display:flex;gap:16px;margin-top:34px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;text-decoration:none;font-family:var(--round);font-weight:700;font-size:17px;padding:14px 28px;border-radius:999px;box-shadow:0 10px 24px -8px rgba(240,138,60,.7);transition:transform .2s,box-shadow .2s}
-.btn:hover{transform:translateY(-2px);box-shadow:0 16px 30px -10px rgba(240,138,60,.8)}
+.btn:hover{transform:translateY(-2px)}
 .btn.light{background:rgba(255,255,255,.16);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.55)}
-.flyer{position:relative}
 .flyer img{width:118%;max-width:none;margin-left:-6%;height:auto;filter:drop-shadow(0 30px 40px rgba(30,20,70,.35));animation:float 5s ease-in-out infinite}
 @keyframes float{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-18px) rotate(1deg)}}
 
-/* 昼夜对开 */
-section{padding:130px 0}
-.title{text-align:center;margin-bottom:64px}
-.title h2{font-family:var(--round);font-weight:800;font-size:clamp(36px,4.4vw,58px);line-height:1.2}
-.title p{color:var(--muted);margin-top:12px}
-.diptych{display:grid;grid-template-columns:1fr 1fr;gap:28px}
-.panel{position:relative;border-radius:32px;overflow:hidden;min-height:660px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;box-shadow:0 40px 70px -40px rgba(51,38,30,.6);isolation:isolate}
-.panel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1.2s ease}
-.panel:hover img{transform:scale(1.04)}
-.panel::before{content:"";position:absolute;inset:0;z-index:-1}
-.panel.am::before{background:linear-gradient(180deg,rgba(255,255,255,0) 35%,rgba(43,70,92,.85) 100%)}
-.panel.pm::before{background:linear-gradient(180deg,rgba(0,0,0,0) 30%,rgba(18,16,46,.92) 100%)}
-.panel .in{padding:40px 40px 44px}
-.clock{display:inline-flex;align-items:center;gap:8px;font-family:var(--round);font-weight:700;font-size:14px;letter-spacing:.12em;background:rgba(255,255,255,.2);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:6px 14px;border-radius:999px}
-.panel h3{font-family:var(--round);font-weight:800;font-size:clamp(30px,3vw,42px);line-height:1.25;margin:18px 0 10px}
-.panel p{opacity:.92;font-size:16px;max-width:26em;margin-bottom:26px}
-.panel .acts{display:flex;align-items:center;gap:20px}
-.panel .src{font-size:14px;opacity:.8;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.5)}
-.panel .src:hover{opacity:1}
+section{padding:120px 0}
+.title{margin-bottom:56px}
+.title.c{text-align:center}
+.title small{font-family:var(--round);font-weight:700;font-size:14px;letter-spacing:.2em;color:var(--orange)}
+.title h2{font-family:var(--round);font-weight:800;font-size:clamp(34px,4vw,52px);line-height:1.2;margin-top:6px}
+.title p{color:var(--muted);margin-top:10px}
 
-/* 宠物阵容 */
-.parade{display:flex;justify-content:center;align-items:flex-end;gap:clamp(10px,4vw,56px);padding:40px 0 0}
-.parade figure{text-align:center}
-.parade img{height:clamp(110px,15vw,190px);width:auto;transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
-.parade figure:hover img{transform:translateY(-14px)}
-.parade figcaption{font-family:var(--round);font-weight:700;font-size:15px;margin-top:8px;color:var(--muted)}
-.ground{height:14px;max-width:760px;margin:0 auto;border-radius:50%;background:radial-gradient(ellipse,rgba(51,38,30,.14),transparent 70%)}
+/* 关于我 */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.about .text p{font-size:17.5px;color:#4E4038}
+.about .text p + p{margin-top:16px}
+.about .text b{color:var(--orange);font-weight:700}
+.likes{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.likes span{font-family:var(--round);font-weight:700;font-size:14px;background:#fff;border-radius:999px;padding:6px 16px;box-shadow:0 6px 16px -10px rgba(51,38,30,.4)}
+.stage{background:linear-gradient(180deg,#E9EDFF 0%,#FFF1E3 100%);border-radius:36px;padding:50px 30px 34px;text-align:center}
+.stage .cap{font-family:var(--round);font-weight:700;font-size:15px;color:var(--muted);margin-bottom:22px}
+.parade{display:flex;justify-content:center;align-items:flex-end;gap:12px}
+.parade figure img{height:clamp(90px,10vw,150px);width:auto;transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.parade figure:hover img{transform:translateY(-12px)}
+.parade figcaption{font-family:var(--round);font-weight:700;font-size:13.5px;color:var(--muted)}
 
-/* 日常 */
+/* 在做的事 */
 .daily{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .card{background:#fff;border-radius:28px;padding:36px 32px;box-shadow:0 20px 50px -30px rgba(51,38,30,.4)}
 .card .ico{width:56px;height:56px;border-radius:18px;display:grid;place-items:center;font-size:26px;margin-bottom:20px}
 .card:nth-child(1) .ico{background:#FFE6D4}.card:nth-child(2) .ico{background:#E4E8FF}.card:nth-child(3) .ico{background:#E2F3EA}
 .card h3{font-family:var(--round);font-weight:800;font-size:22px;margin-bottom:8px}
 .card p{color:var(--muted);font-size:15.5px}
+.card ul{list-style:none;margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
+.card li{font-size:13px;color:#8C7B6E;background:var(--milk);border-radius:8px;padding:2px 10px}
 
-footer{padding:40px 0 56px;color:var(--muted);font-size:14px}
-footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;border-top:1px solid #EEDFCF;padding-top:30px}
-footer a{text-decoration:none}
-footer a:hover{color:var(--orange)}
+/* 作品：紧凑卡片 */
+.games{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.game{display:grid;grid-template-columns:150px 1fr;background:#fff;border-radius:28px;overflow:hidden;text-decoration:none;box-shadow:0 20px 50px -30px rgba(51,38,30,.4);transition:transform .25s,box-shadow .25s}
+.game:hover{transform:translateY(-4px);box-shadow:0 26px 54px -28px rgba(51,38,30,.5)}
+.game .thumb{position:relative;min-height:210px}
+.game .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.game .body{padding:26px}
+.game .when{font-family:var(--round);font-weight:700;font-size:13px;color:var(--orange)}
+.game h3{font-family:var(--round);font-weight:800;font-size:22px;margin:4px 0 6px}
+.game p{font-size:14.5px;color:var(--muted);line-height:1.75}
+.game .go{display:inline-block;margin-top:12px;font-family:var(--round);font-weight:700;font-size:15px;color:var(--orange)}
+
+/* 找到我 */
+.contact{text-align:center;padding:110px 0 100px}
+.contact h2{font-family:var(--round);font-weight:800;font-size:clamp(32px,3.6vw,46px)}
+.contact p{color:var(--muted);margin:12px 0 30px}
+
+footer{padding:0 0 50px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;border-top:1px solid var(--line);padding-top:28px}
 
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s ease}
 .reveal.in{opacity:1;transform:none}
@@ -108,13 +111,17 @@ footer a:hover{color:var(--orange)}
   .hero p{margin:0 auto}.cta{justify-content:center}
   .flyer img{width:100%;margin-left:0}
   .moon{width:56px;height:56px;left:auto;right:8%;top:12%}
-  .diptych{grid-template-columns:1fr}
-  .panel{min-height:560px}
-  .daily{grid-template-columns:1fr}
-  section{padding:90px 0}
+  .about{grid-template-columns:1fr;gap:44px}
+  .daily,.games{grid-template-columns:1fr}
+  section{padding:84px 0}
   nav ul{gap:18px;font-size:14px}
 }
-@media (max-width:520px){ .panel .in{padding:28px 24px 32px} nav ul li:first-child{display:none} .parade{gap:6px} .parade img{height:auto;width:20vw} .parade figcaption{font-size:13px} }
+@media (max-width:520px){
+  nav ul li:nth-child(2){display:none}
+  .parade{gap:4px}.parade figure img{height:auto;width:19vw}
+  .game{grid-template-columns:110px 1fr}
+  .game .body{padding:20px 18px}
+}
 @media (prefers-reduced-motion:reduce){
   *{transition:none!important;animation:none!important;scroll-behavior:auto!important}
   .reveal{opacity:1;transform:none}
@@ -130,9 +137,10 @@ footer a:hover{color:var(--orange)}
   <div class="wrap">
     <a class="logo" href="#top"><svg><use href="#paw"/></svg>皮妞妞</a>
     <ul>
-      <li><a href="#games">小游戏</a></li>
-      <li><a href="#daily">日常</a></li>
-      <li><a href="https://github.com/pi-niuniu">GitHub</a></li>
+      <li><a href="#about">关于我</a></li>
+      <li><a href="#daily">在做的事</a></li>
+      <li><a href="#works">作品</a></li>
+      <li><a href="#contact">找到我</a></li>
     </ul>
   </div>
 </nav>
@@ -143,66 +151,77 @@ footer a:hover{color:var(--orange)}
   <div class="city" aria-hidden="true"></div>
   <div class="wrap hero-in">
     <div>
+      <div class="hi">你好呀，我是</div>
       <h1>皮妞妞</h1>
-      <div class="tag">早上它载你<span>去上班</span>，<br>晚上它来<span>接你回家</span>。</div>
-      <p>分享萌宠日常，做萌宠短视频，也收集好用的小工具。还做了两款萌宠通勤小游戏，点开就能玩。</p>
-      <div class="cta"><a class="btn" href="#games">去玩小游戏</a><a class="btn light" href="#daily">看看日常</a></div>
+      <div class="tag">分享<span>毛孩子</span>的日常，<br>也用 AI 给它们拍<span>小剧场</span>。</div>
+      <p>这里是我的小角落：萌宠分享、萌宠短视频、好用的工具，还有我自己做的萌宠小游戏。</p>
+      <div class="cta"><a class="btn" href="#about">认识我</a><a class="btn light" href="#works">看看作品</a></div>
     </div>
     <div class="flyer"><img src="img/leap.webp" alt="女孩骑在系着红围巾的大橘猫背上，橘猫腾空飞奔" width="1100" height="722"></div>
   </div>
 </header>
 
 <main>
-  <section id="games" aria-labelledby="games-h">
-    <div class="wrap">
-      <div class="title reveal"><h2 id="games-h">一早一晚，都有它</h2><p>不用下载、不用登录，手机竖屏玩最顺手。</p></div>
-      <div class="diptych">
-        <article class="panel am reveal">
-          <img src="img/morning.webp" alt="清晨的街道：早点铺、红绿灯和共享单车" loading="lazy" width="720" height="1280">
-          <div class="in">
-            <span class="clock">☀ 08:52 · 早上</span>
-            <h3>骑着萌宠去上班</h3>
-            <p>连点蛋壳孵出今天的坐骑：橘猫、大熊猫、兔狲还是小毛驴？骑着它吃冰美式、躲开“在吗？”消息轰炸，赶在电梯关门前打卡。约 30 秒一局。</p>
-            <div class="acts"><a class="btn" href="https://pi-niuniu.github.io/ride-pet-to-work/">骑上它出发</a><a class="src" href="https://github.com/pi-niuniu/ride-pet-to-work">源码</a></div>
-          </div>
-        </article>
-        <article class="panel pm reveal">
-          <img src="img/night.webp" alt="夜晚的江边大道，路灯一盏盏亮起" loading="lazy" width="720" height="1279">
-          <div class="in">
-            <span class="clock">☾ 18:30 · 晚上</span>
-            <h3>萌宠来接你下班</h3>
-            <p>大橘猫准时到公司门口接你。一路吃小鱼干、红灯回头自拍、飞越江面放烟花，下雨了就举起尾巴给你挡雨，到家拍一张合影。约 1 分钟一局。</p>
-            <div class="acts"><a class="btn" href="https://pi-niuniu.github.io/pet-pickup-after-work/">等它来接我</a><a class="src" href="https://github.com/pi-niuniu/pet-pickup-after-work">源码</a></div>
-          </div>
-        </article>
+  <section id="about" aria-labelledby="about-h">
+    <div class="wrap about">
+      <div class="text reveal">
+        <div class="title"><small>关于我</small><h2 id="about-h">喜欢毛孩子，<br>也喜欢捣鼓工具</h2></div>
+        <p>我是皮妞妞，也叫<b>傲娇的皮妞妞</b>。这个站放着我平时在做的事。</p>
+        <p>我会分享萌宠的日常，用 AI 给毛孩子拍小剧场，也把做内容用到的好工具整理出来。偶尔脑洞大开，就把它们画进小游戏里：早上骑着它去上班，晚上它来接你回家。</p>
+        <div class="likes"><span>🐱 萌宠分享</span><span>🎬 萌宠短视频</span><span>🧰 工具使用</span><span>🎮 小游戏</span></div>
       </div>
-
-      <div class="parade reveal" aria-label="可以孵出的坐骑">
-        <figure><img src="img/frog_front.webp" alt="戴斗笠的小青蛙" width="308" height="320"><figcaption>小青蛙</figcaption></figure>
-        <figure><img src="img/cat_front.webp" alt="系红围巾的橘猫" width="260" height="320"><figcaption>橘猫</figcaption></figure>
-        <figure><img src="img/gpanda_front.webp" alt="大熊猫" width="241" height="320"><figcaption>大熊猫</figcaption></figure>
-        <figure><img src="img/manul_front.webp" alt="兔狲" width="304" height="320"><figcaption>兔狲</figcaption></figure>
+      <div class="stage reveal" aria-label="小游戏里的毛孩子们">
+        <div class="cap">我画过的毛孩子们</div>
+        <div class="parade">
+          <figure><img src="img/frog_front.webp" alt="戴斗笠的小青蛙" width="308" height="320"><figcaption>小青蛙</figcaption></figure>
+          <figure><img src="img/cat_front.webp" alt="系红围巾的橘猫" width="260" height="320"><figcaption>橘猫</figcaption></figure>
+          <figure><img src="img/gpanda_front.webp" alt="大熊猫" width="241" height="320"><figcaption>大熊猫</figcaption></figure>
+          <figure><img src="img/manul_front.webp" alt="兔狲" width="304" height="320"><figcaption>兔狲</figcaption></figure>
+        </div>
       </div>
-      <div class="ground" aria-hidden="true"></div>
     </div>
   </section>
 
-  <section id="daily" aria-labelledby="daily-h" style="padding-top:40px">
+  <section id="daily" aria-labelledby="daily-h" style="padding-top:20px">
     <div class="wrap">
-      <div class="title reveal"><h2 id="daily-h">平时在做的事</h2><p>都和毛孩子有关。</p></div>
+      <div class="title c reveal"><small>在做的事</small><h2 id="daily-h">都和毛孩子有关</h2></div>
       <div class="daily">
-        <div class="card reveal"><div class="ico" aria-hidden="true">🐾</div><h3>萌宠分享</h3><p>猫猫狗狗的日常、养宠的小经验，还有路上遇到的可爱瞬间。</p></div>
-        <div class="card reveal"><div class="ico" aria-hidden="true">🎬</div><h3>萌宠短视频</h3><p>用 AI 给毛孩子拍小剧场：它会说话、会上班，还会来接你回家。</p></div>
-        <div class="card reveal"><div class="ico" aria-hidden="true">🧰</div><h3>工具使用</h3><p>做图、剪视频、配音用到的好用工具，怎么上手、哪里收费都写清楚。</p></div>
+        <div class="card reveal"><div class="ico" aria-hidden="true">🐾</div><h3>萌宠分享</h3><p>猫猫狗狗的日常、养宠的小经验，还有路上遇到的可爱瞬间。</p><ul><li>日常</li><li>养宠经验</li><li>可爱瞬间</li></ul></div>
+        <div class="card reveal"><div class="ico" aria-hidden="true">🎬</div><h3>萌宠短视频</h3><p>用 AI 给毛孩子拍小剧场：它会说话、会上班，还会来接你回家。</p><ul><li>AI 小剧场</li><li>配音</li><li>剪辑</li></ul></div>
+        <div class="card reveal"><div class="ico" aria-hidden="true">🧰</div><h3>工具使用</h3><p>做图、剪视频、配音用到的好用工具，怎么上手、哪里收费都写清楚。</p><ul><li>做图</li><li>剪视频</li><li>配音</li></ul></div>
       </div>
     </div>
   </section>
+
+  <section id="works" aria-labelledby="works-h" style="padding-top:20px">
+    <div class="wrap">
+      <div class="title c reveal"><small>作品</small><h2 id="works-h">做过的萌宠小游戏</h2><p>不用下载、不用登录，点开就能玩。</p></div>
+      <div class="games">
+        <a class="game reveal" href="https://pi-niuniu.github.io/ride-pet-to-work/">
+          <div class="thumb"><img src="img/morning.webp" alt="清晨的街道" loading="lazy" width="720" height="1280"></div>
+          <div class="body"><div class="when">☀ 早上 · 约 30 秒一局</div><h3>骑着萌宠去上班</h3><p>孵出今天的坐骑，躲开“在吗？”消息轰炸，赶在电梯关门前打卡。</p><span class="go">开始试玩 →</span></div>
+        </a>
+        <a class="game reveal" href="https://pi-niuniu.github.io/pet-pickup-after-work/">
+          <div class="thumb"><img src="img/night.webp" alt="夜晚的江边大道" loading="lazy" width="720" height="1279"></div>
+          <div class="body"><div class="when">☾ 晚上 · 约 1 分钟一局</div><h3>萌宠来接你下班</h3><p>大橘猫来公司门口接你，一路兜风吃小鱼干，到家拍一张合影。</p><span class="go">开始试玩 →</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="contact" id="contact">
+    <div class="wrap">
+      <h2>找到我</h2>
+      <p>有好玩的毛孩子故事、好用的工具，欢迎来分享。</p>
+      <a class="btn" href="https://github.com/pi-niuniu">GitHub · pi-niuniu</a>
+    </div>
+  </div>
 </main>
 
 <footer>
   <div class="wrap">
     <span>© 2026 皮妞妞</span>
-    <a href="https://github.com/pi-niuniu">github.com/pi-niuniu</a>
+    <span>今天也被毛孩子治愈了。</span>
   </div>
 </footer>
 
