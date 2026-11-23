@@ -5,11 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>皮妞妞 · 个人主页</title>
 <meta name="description" content="皮妞妞的个人主页：萌宠分享、萌宠短视频、好用的工具，还有两款点开就能玩的萌宠小游戏。">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://pi-niuniu.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="皮妞妞 · 个人主页">
+<meta property="og:description" content="萌宠分享、萌宠短视频、好用的工具，还有两款点开就能玩的萌宠小游戏。">
+<meta property="og:url" content="https://pi-niuniu.github.io/">
+<meta property="og:image" content="https://pi-niuniu.github.io/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#2A3266">
 <style>
 :root{
   --dusk:#2A3266;
   --orange:#F08A3C;
+  --orange-ink:#A84E17;
   --peach:#F7B08A;
   --milk:#FFF8EF;
   --cocoa:#33261E;
@@ -45,16 +54,16 @@ nav ul a:hover{opacity:1}
 .hero .tag span{color:#FFD9A8}
 .hero p{max-width:26em;opacity:.9;font-size:16.5px}
 .cta{display:flex;gap:16px;margin-top:34px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;text-decoration:none;font-family:var(--round);font-weight:700;font-size:17px;padding:14px 28px;border-radius:999px;box-shadow:0 10px 24px -8px rgba(240,138,60,.7);transition:transform .2s,box-shadow .2s}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:var(--cocoa);text-decoration:none;font-family:var(--round);font-weight:700;font-size:17px;padding:14px 28px;border-radius:999px;box-shadow:0 10px 24px -8px rgba(240,138,60,.7);transition:transform .2s,box-shadow .2s}
 .btn:hover{transform:translateY(-2px)}
-.btn.light{background:rgba(255,255,255,.16);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.55)}
+.btn.light{color:#fff;background:rgba(255,255,255,.16);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.55)}
 .flyer img{width:118%;max-width:none;margin-left:-6%;height:auto;filter:drop-shadow(0 30px 40px rgba(30,20,70,.35));animation:float 5s ease-in-out infinite}
 @keyframes float{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-18px) rotate(1deg)}}
 
 section{padding:120px 0}
 .title{margin-bottom:56px}
 .title.c{text-align:center}
-.title small{font-family:var(--round);font-weight:700;font-size:14px;letter-spacing:.2em;color:var(--orange)}
+.title small{font-family:var(--round);font-weight:700;font-size:14px;letter-spacing:.2em;color:var(--orange-ink)}
 .title h2{font-family:var(--round);font-weight:800;font-size:clamp(34px,4vw,52px);line-height:1.2;margin-top:6px}
 .title p{color:var(--muted);margin-top:10px}
 
@@ -62,7 +71,7 @@ section{padding:120px 0}
 .about{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
 .about .text p{font-size:17.5px;color:#4E4038}
 .about .text p + p{margin-top:16px}
-.about .text b{color:var(--orange);font-weight:700}
+.about .text b{color:var(--orange-ink);font-weight:700}
 .likes{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
 .likes span{font-family:var(--round);font-weight:700;font-size:14px;background:#fff;border-radius:999px;padding:6px 16px;box-shadow:0 6px 16px -10px rgba(51,38,30,.4)}
 .stage{background:linear-gradient(180deg,#E9EDFF 0%,#FFF1E3 100%);border-radius:36px;padding:50px 30px 34px;text-align:center}
@@ -89,10 +98,10 @@ section{padding:120px 0}
 .game .thumb{position:relative;min-height:210px}
 .game .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .game .body{padding:26px}
-.game .when{font-family:var(--round);font-weight:700;font-size:13px;color:var(--orange)}
+.game .when{font-family:var(--round);font-weight:700;font-size:13px;color:var(--orange-ink)}
 .game h3{font-family:var(--round);font-weight:800;font-size:22px;margin:4px 0 6px}
 .game p{font-size:14.5px;color:var(--muted);line-height:1.75}
-.game .go{display:inline-block;margin-top:12px;font-family:var(--round);font-weight:700;font-size:15px;color:var(--orange)}
+.game .go{display:inline-block;margin-top:12px;font-family:var(--round);font-weight:700;font-size:15px;color:var(--orange-ink)}
 
 /* 找到我 */
 .contact{text-align:center;padding:110px 0 100px}
@@ -102,8 +111,9 @@ section{padding:120px 0}
 footer{padding:0 0 50px;color:var(--muted);font-size:14px}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;border-top:1px solid var(--line);padding-top:28px}
 
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s ease}
-.reveal.in{opacity:1;transform:none}
+.reveal{transition:opacity .9s ease,transform .9s ease}
+.anim .reveal{opacity:0;transform:translateY(28px)}
+.anim .reveal.in{opacity:1;transform:none}
 
 @media (max-width:960px){
   .wrap{padding:0 22px}
@@ -111,14 +121,17 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
   .hero p{margin:0 auto}.cta{justify-content:center}
   .flyer img{width:100%;margin-left:0}
   .moon{width:56px;height:56px;left:auto;right:8%;top:12%}
-  .about{grid-template-columns:1fr;gap:44px}
+  .about{grid-template-columns:minmax(0,1fr);gap:44px}
+  .parade figure{flex:1 1 0;min-width:0}
+  .parade figure img{width:100%;height:auto;max-height:150px;object-fit:contain}
   .daily,.games{grid-template-columns:1fr}
   section{padding:84px 0}
   nav ul{gap:18px;font-size:14px}
 }
 @media (max-width:520px){
-  nav ul li:nth-child(2){display:none}
-  .parade{gap:4px}.parade figure img{height:auto;width:19vw}
+  nav ul{gap:12px;font-size:13.5px}
+  .parade{gap:4px}
+  .stage{padding:40px 14px 26px}
   .game{grid-template-columns:110px 1fr}
   .game .body{padding:20px 18px}
 }
@@ -171,12 +184,12 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
         <div class="likes"><span>🐱 萌宠分享</span><span>🎬 萌宠短视频</span><span>🧰 工具使用</span><span>🎮 小游戏</span></div>
       </div>
       <div class="stage reveal" aria-label="小游戏里的毛孩子们">
-        <div class="cap">我画过的毛孩子们</div>
+        <div class="cap">小游戏里的毛孩子们</div>
         <div class="parade">
-          <figure><img src="img/frog_front.webp" alt="戴斗笠的小青蛙" width="308" height="320"><figcaption>小青蛙</figcaption></figure>
-          <figure><img src="img/cat_front.webp" alt="系红围巾的橘猫" width="260" height="320"><figcaption>橘猫</figcaption></figure>
-          <figure><img src="img/gpanda_front.webp" alt="大熊猫" width="241" height="320"><figcaption>大熊猫</figcaption></figure>
-          <figure><img src="img/manul_front.webp" alt="兔狲" width="304" height="320"><figcaption>兔狲</figcaption></figure>
+          <figure><img src="img/frog_front.webp" alt="戴斗笠的小青蛙" width="308" height="320" loading="lazy"><figcaption>小青蛙</figcaption></figure>
+          <figure><img src="img/cat_front.webp" alt="系红围巾的橘猫" width="260" height="320" loading="lazy"><figcaption>橘猫</figcaption></figure>
+          <figure><img src="img/gpanda_front.webp" alt="大熊猫" width="241" height="320" loading="lazy"><figcaption>大熊猫</figcaption></figure>
+          <figure><img src="img/manul_front.webp" alt="兔狲" width="304" height="320" loading="lazy"><figcaption>兔狲</figcaption></figure>
         </div>
       </div>
     </div>
@@ -198,11 +211,11 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
       <div class="title c reveal"><small>作品</small><h2 id="works-h">做过的萌宠小游戏</h2><p>不用下载、不用登录，点开就能玩。</p></div>
       <div class="games">
         <a class="game reveal" href="https://pi-niuniu.github.io/ride-pet-to-work/">
-          <div class="thumb"><img src="img/morning.webp" alt="清晨的街道" loading="lazy" width="720" height="1280"></div>
+          <div class="thumb"><img src="img/thumb-morning.webp" alt="清晨的街道" loading="lazy" width="300" height="533"></div>
           <div class="body"><div class="when">☀ 早上 · 约 30 秒一局</div><h3>骑着萌宠去上班</h3><p>孵出今天的坐骑，躲开“在吗？”消息轰炸，赶在电梯关门前打卡。</p><span class="go">开始试玩 →</span></div>
         </a>
         <a class="game reveal" href="https://pi-niuniu.github.io/pet-pickup-after-work/">
-          <div class="thumb"><img src="img/night.webp" alt="夜晚的江边大道" loading="lazy" width="720" height="1279"></div>
+          <div class="thumb"><img src="img/thumb-night.webp" alt="夜晚的江边大道" loading="lazy" width="300" height="533"></div>
           <div class="body"><div class="when">☾ 晚上 · 约 1 分钟一局</div><h3>萌宠来接你下班</h3><p>大橘猫来公司门口接你，一路兜风吃小鱼干，到家拍一张合影。</p><span class="go">开始试玩 →</span></div>
         </a>
       </div>
@@ -228,7 +241,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
 <script>
 (function(){
   var els=document.querySelectorAll('.reveal');
-  if(!('IntersectionObserver' in window)||(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){[].forEach.call(els,function(e){e.classList.add('in')});return}
+  if(!('IntersectionObserver' in window)||(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){return}
+  document.documentElement.classList.add('anim');
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
   [].forEach.call(els,function(e){io.observe(e)});
 })();
