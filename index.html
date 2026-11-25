@@ -3,137 +3,249 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>皮妞妞 · 个人主页</title>
-<meta name="description" content="皮妞妞的个人主页：萌宠分享、萌宠短视频、好用的工具，还有两款点开就能玩的萌宠小游戏。">
+<title>皮妞妞 · 一只猫写的绘本</title>
+<meta name="description" content="我长了一张不好惹的脸，其实一摸就翻肚皮。黑金渐层长毛猫皮妞妞写的绘本：我、家里的乖乖和熊图图，还有两个点开就能玩的小游戏。">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://pi-niuniu.github.io/">
+<link rel="preload" href="fonts/kuaile.woff2" as="font" type="font/woff2" crossorigin>
 <meta property="og:type" content="website">
-<meta property="og:title" content="皮妞妞 · 个人主页">
-<meta property="og:description" content="萌宠分享、萌宠短视频、好用的工具，还有两款点开就能玩的萌宠小游戏。">
+<meta property="og:title" content="皮妞妞 · 一只猫写的绘本">
+<meta property="og:description" content="我长了一张不好惹的脸。其实，一摸就翻肚皮。">
 <meta property="og:url" content="https://pi-niuniu.github.io/">
 <meta property="og:image" content="https://pi-niuniu.github.io/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#2A3266">
+<meta name="theme-color" content="#FFF8EC">
 <style>
+@font-face{font-family:"KuaiLe";src:url("fonts/kuaile.woff2") format("woff2");font-display:swap}
+/* 颜色全部取自皮妞妞本猫：围巾红、蜂蜜金（毛色）、鼻头粉、墨棕（深色毛） */
 :root{
-  --dusk:#2A3266;
-  --orange:#F08A3C;
-  --orange-ink:#A84E17;
-  --peach:#F7B08A;
-  --milk:#FFF8EF;
-  --cocoa:#33261E;
-  --muted:#7A6A5E;
-  --line:#EEDFCF;
-  --round:"Yuanti SC","PingFang SC","Hiragino Maru Gothic ProN","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;
+  --paper:#FFF8EC;
+  --scarf:#E5483E;--scarf-deep:#C8352C;
+  --honey:#F6B73C;--honey-soft:#FFEBC4;
+  --nose:#F494AA;--nose-soft:#FFE3E9;
+  --ink:#4B3129;--ink-soft:#86675C;
+  --fun:"KuaiLe","Yuanti SC","PingFang SC","Microsoft YaHei",sans-serif;
   --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;
+  --blob:58% 42% 52% 48%/48% 56% 44% 52%;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--milk);color:var(--cocoa);font-family:var(--sans);font-size:17px;line-height:1.8;-webkit-font-smoothing:antialiased}
+body{background:var(--paper) radial-gradient(rgba(244,148,170,.14) 1.6px,transparent 1.8px) 0 0/30px 30px;color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.85;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit}
-:focus-visible{outline:3px solid var(--orange);outline-offset:4px;border-radius:8px}
-.wrap{max-width:1200px;margin:0 auto;padding:0 40px}
+img{display:block;max-width:100%;height:auto}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--scarf);outline-offset:4px;border-radius:10px}
+.wrap{max-width:1140px;margin:0 auto;padding:0 36px}
 
-nav{position:absolute;inset:0 0 auto;z-index:10}
-nav .wrap{display:flex;justify-content:space-between;align-items:center;height:80px;color:#fff}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--round);font-weight:700;font-size:21px;letter-spacing:.06em}
-.logo svg{width:28px;height:28px;color:var(--peach)}
-nav ul{display:flex;gap:30px;list-style:none;font-size:15px;font-weight:500}
-nav ul a{text-decoration:none;opacity:.85}
-nav ul a:hover{opacity:1}
+/* 小装饰：只留首屏两处 */
+.doodle{position:absolute;pointer-events:none;z-index:0}
+.doodle svg{width:100%;height:100%;display:block}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-10px) rotate(var(--r,0deg))}}
+.bob{animation:bob 4.5s ease-in-out infinite}
 
-/* 首屏 */
-.hero{position:relative;min-height:100vh;overflow:hidden;color:#fff;background:linear-gradient(180deg,#232A5C 0%,#3E4C9A 30%,#7C86CF 55%,#E7A6A0 78%,#F8C595 100%)}
-.stars{position:absolute;inset:0;background-image:radial-gradient(1.5px 1.5px at 12% 14%,#fff,transparent),radial-gradient(1px 1px at 28% 8%,#fff,transparent),radial-gradient(1.5px 1.5px at 46% 18%,#fff,transparent),radial-gradient(1px 1px at 63% 6%,#fff,transparent),radial-gradient(1.5px 1.5px at 78% 16%,#fff,transparent),radial-gradient(1px 1px at 90% 9%,#fff,transparent),radial-gradient(1px 1px at 36% 26%,#fff,transparent),radial-gradient(1px 1px at 84% 28%,#fff,transparent);opacity:.75}
-.moon{position:absolute;left:47%;top:11%;width:84px;height:84px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#FFF6DC,#F7DFA6 60%,#EBC57E);box-shadow:0 0 80px 20px rgba(255,230,170,.35)}
-.city{position:absolute;left:0;right:0;bottom:0;height:17vh;min-height:110px;background:linear-gradient(180deg,#4A3F78,#2E2752);clip-path:polygon(0 70%,4% 70%,4% 48%,7% 48%,7% 40%,10% 40%,10% 58%,15% 58%,15% 30%,17% 26%,19% 30%,19% 52%,24% 52%,24% 44%,29% 44%,29% 64%,34% 64%,34% 36%,37% 36%,37% 20%,38% 16%,39% 20%,39% 36%,42% 36%,42% 56%,48% 56%,48% 42%,53% 42%,53% 62%,58% 62%,58% 34%,62% 34%,62% 50%,67% 50%,67% 28%,69% 24%,71% 28%,71% 46%,76% 46%,76% 60%,81% 60%,81% 38%,86% 38%,86% 54%,91% 54%,91% 44%,96% 44%,96% 66%,100% 66%,100% 100%,0 100%)}
-.hero-in{position:relative;z-index:2;min-height:100vh;display:grid;grid-template-columns:1fr 1.15fr;align-items:center;gap:20px;padding-top:80px;padding-bottom:20vh}
-.hi{font-family:var(--round);font-weight:700;font-size:20px;opacity:.9}
-.hero h1{font-family:var(--round);font-weight:800;font-size:clamp(64px,9vw,132px);line-height:1.05;letter-spacing:.02em;text-shadow:0 8px 40px rgba(30,20,70,.35);margin-top:6px}
-.hero .tag{font-family:var(--round);font-weight:700;font-size:clamp(21px,2.2vw,30px);line-height:1.55;margin:22px 0 16px}
-.hero .tag span{color:#FFD9A8}
-.hero p{max-width:26em;opacity:.9;font-size:16.5px}
-.cta{display:flex;gap:16px;margin-top:34px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:var(--cocoa);text-decoration:none;font-family:var(--round);font-weight:700;font-size:17px;padding:14px 28px;border-radius:999px;box-shadow:0 10px 24px -8px rgba(240,138,60,.7);transition:transform .2s,box-shadow .2s}
-.btn:hover{transform:translateY(-2px)}
-.btn.light{color:#fff;background:rgba(255,255,255,.16);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.55)}
-.flyer img{width:118%;max-width:none;margin-left:-6%;height:auto;filter:drop-shadow(0 30px 40px rgba(30,20,70,.35));animation:float 5s ease-in-out infinite}
-@keyframes float{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-18px) rotate(1deg)}}
+/* 顶栏 */
+.bar{position:sticky;top:0;z-index:30;background:rgba(255,248,236,.9);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.bar .wrap{display:flex;justify-content:space-between;align-items:center;gap:14px;height:68px}
+.brand{display:flex;align-items:center;gap:8px;text-decoration:none;font-family:var(--fun);font-size:26px}
+.brand svg{width:30px;height:30px;color:var(--scarf)}
+.toc{display:flex;gap:6px;list-style:none;font-family:var(--fun);font-size:18px}
+.toc a{display:block;text-decoration:none;padding:4px 14px;border-radius:999px;transition:background .2s,transform .2s}
+.toc a:hover{background:var(--honey-soft);transform:translateY(-2px)}
 
-section{padding:120px 0}
-.title{margin-bottom:56px}
-.title.c{text-align:center}
-.title small{font-family:var(--round);font-weight:700;font-size:14px;letter-spacing:.2em;color:var(--orange-ink)}
-.title h2{font-family:var(--round);font-weight:800;font-size:clamp(34px,4vw,52px);line-height:1.2;margin-top:6px}
-.title p{color:var(--muted);margin-top:10px}
+/* 通用 */
+.page{position:relative;padding:84px 0}
+.panel{position:relative;border-radius:48px;padding:70px 64px}
+.folio{display:inline-flex;align-items:center;gap:6px;font-family:var(--fun);font-size:16px;color:var(--ink);background:#fff;border:2.5px solid var(--ink);padding:1px 14px 0;border-radius:999px;transform:rotate(-3deg);box-shadow:3px 3px 0 var(--ink)}
+.folio svg{width:15px;height:15px;color:var(--scarf)}
+.page h2{font-family:var(--fun);font-weight:400;font-size:clamp(36px,4.6vw,56px);line-height:1.2;margin:18px 0 22px;position:relative;z-index:1}
+.lead{font-size:18.5px;max-width:34em;position:relative;z-index:1}
+.lead + .lead{margin-top:10px}
+.hl{background:linear-gradient(transparent 58%,var(--honey) 58%,var(--honey) 92%,transparent 92%);padding:0 2px;white-space:nowrap}
+.bubble{position:relative;display:inline-block;background:#fff;border:3px solid var(--ink);border-radius:28px;padding:14px 22px;font-family:var(--fun);font-size:22px;line-height:1.5;box-shadow:5px 6px 0 var(--nose-soft)}
+.bubble::after{content:"";position:absolute;left:38px;bottom:-15px;width:22px;height:22px;background:#fff;border-right:3px solid var(--ink);border-bottom:3px solid var(--ink);transform:rotate(45deg) skew(8deg,8deg)}
+.btn{display:inline-block;font-family:var(--fun);font-size:21px;text-decoration:none;color:#fff;background:var(--scarf);padding:12px 30px;border-radius:999px;border:3px solid var(--ink);box-shadow:0 6px 0 var(--ink);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(2px);box-shadow:0 4px 0 var(--ink)}
+.btn:active{transform:translateY(6px);box-shadow:0 0 0 var(--ink)}
 
-/* 关于我 */
-.about{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
-.about .text p{font-size:17.5px;color:#4E4038}
-.about .text p + p{margin-top:16px}
-.about .text b{color:var(--orange-ink);font-weight:700}
-.likes{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
-.likes span{font-family:var(--round);font-weight:700;font-size:14px;background:#fff;border-radius:999px;padding:6px 16px;box-shadow:0 6px 16px -10px rgba(51,38,30,.4)}
-.stage{background:linear-gradient(180deg,#E9EDFF 0%,#FFF1E3 100%);border-radius:36px;padding:50px 30px 34px;text-align:center}
-.stage .cap{font-family:var(--round);font-weight:700;font-size:15px;color:var(--muted);margin-bottom:22px}
-.parade{display:flex;justify-content:center;align-items:flex-end;gap:12px}
-.parade figure img{height:clamp(90px,10vw,150px);width:auto;transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
-.parade figure:hover img{transform:translateY(-12px)}
-.parade figcaption{font-family:var(--round);font-weight:700;font-size:13.5px;color:var(--muted)}
+/* 封面 */
+.cover{position:relative;padding:36px 0 40px}
+.cover .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.cover .say{font-family:var(--fun);font-size:20px;color:var(--scarf)}
+.cover h1{font-family:var(--fun);font-weight:400;font-size:clamp(84px,12vw,168px);line-height:1;margin:10px 0 26px;text-shadow:6px 6px 0 var(--nose-soft),12px 12px 0 var(--honey-soft)}
+.cover .line1,.cover .line2{font-family:var(--fun);font-size:clamp(26px,2.8vw,34px);line-height:1.5}
+.cover .line2{color:var(--scarf)}
+.cover .intro{margin:22px 0 34px;max-width:25em;color:var(--ink-soft)}
+.side{justify-self:center;width:min(100%,440px)}
+.stage{position:relative;width:100%;aspect-ratio:440/540}
+.stage .disc{position:absolute;left:4%;right:4%;top:16%;bottom:2%;background:var(--honey-soft);border-radius:var(--blob);transition:background .5s}
+.stage .disc2{position:absolute;right:-4%;top:6%;width:36%;aspect-ratio:1;background:var(--nose-soft);border-radius:50%}
+.pet{all:unset;cursor:pointer;position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:72%;z-index:2;-webkit-tap-highlight-color:transparent}
+.pet img{width:100%;filter:drop-shadow(0 14px 10px rgba(75,49,41,.18));transition:transform .3s cubic-bezier(.3,1.7,.5,1)}
+.pet:hover img{transform:rotate(-3deg) scale(1.02)}
+.pet.purr img{transform:rotate(4deg) scale(1.04)}
+.pet:focus-visible{outline:3px solid var(--scarf);outline-offset:6px;border-radius:30px}
+.soft .disc{background:var(--nose-soft)}
+.soft .pet img{animation:wiggle .9s ease-in-out}
+@keyframes wiggle{0%,100%{transform:rotate(0)}20%{transform:rotate(-7deg) scale(1.04)}45%{transform:rotate(6deg) scale(1.05)}70%{transform:rotate(-3deg)}}
+.stage .bubble{position:absolute;left:-14%;top:2%;z-index:3;font-size:20px;padding:10px 18px;white-space:nowrap;transition:transform .2s}
+.stage .bubble.pop{transform:scale(1.08) rotate(-2deg)}
+.hearts{position:absolute;inset:0;z-index:4;pointer-events:none}
+.hearts i{position:absolute;width:26px;height:26px;color:var(--scarf);opacity:0}
+.hearts i:nth-child(even){color:var(--nose)}
+.hearts i svg{width:100%;height:100%}
+.burst .hearts i{animation:pop 1.2s ease-out forwards}
+@keyframes pop{0%{opacity:0;transform:translateY(0) scale(.4)}25%{opacity:1}100%{opacity:0;transform:translateY(-100px) scale(1.15)}}
 
-/* 在做的事 */
-.daily{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.card{background:#fff;border-radius:28px;padding:36px 32px;box-shadow:0 20px 50px -30px rgba(51,38,30,.4)}
-.card .ico{width:56px;height:56px;border-radius:18px;display:grid;place-items:center;font-size:26px;margin-bottom:20px}
-.card:nth-child(1) .ico{background:#FFE6D4}.card:nth-child(2) .ico{background:#E4E8FF}.card:nth-child(3) .ico{background:#E2F3EA}
-.card h3{font-family:var(--round);font-weight:800;font-size:22px;margin-bottom:8px}
-.card p{color:var(--muted);font-size:15.5px}
-.card ul{list-style:none;margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
-.card li{font-size:13px;color:#8C7B6E;background:var(--milk);border-radius:8px;padding:2px 10px}
+/* 凶度计：这一页的招牌 */
+.meter{margin:26px auto 0;width:min(100%,380px)}
+.meter .row{display:flex;align-items:center;gap:12px;font-family:var(--fun);font-size:22px}
+.meter .end{flex:none;width:30px;text-align:center}
+.meter .end.mean{color:var(--scarf)}
+.meter .end.soft-end{color:var(--nose)}
+.track{position:relative;flex:1;height:20px;border-radius:999px;background:#fff;border:3px solid var(--ink)}
+.track .fill{position:absolute;left:3px;top:3px;bottom:3px;width:calc((100% - 6px) * var(--m));border-radius:999px;background:linear-gradient(90deg,var(--nose),var(--scarf));transition:width .45s cubic-bezier(.3,1.5,.5,1)}
+.track .ticks{position:absolute;inset:0;display:flex;justify-content:space-evenly;pointer-events:none}
+.track .ticks i{width:2px;height:100%;background:rgba(75,49,41,.18)}
+.meter .label{margin-top:8px;text-align:center;font-size:15px;color:var(--ink-soft)}
+.meter .label b{font-family:var(--fun);font-weight:400;font-size:18px;color:var(--ink)}
 
-/* 作品：紧凑卡片 */
-.games{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.game{display:grid;grid-template-columns:150px 1fr;background:#fff;border-radius:28px;overflow:hidden;text-decoration:none;box-shadow:0 20px 50px -30px rgba(51,38,30,.4);transition:transform .25s,box-shadow .25s}
-.game:hover{transform:translateY(-4px);box-shadow:0 26px 54px -28px rgba(51,38,30,.5)}
-.game .thumb{position:relative;min-height:210px}
-.game .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.game .body{padding:26px}
-.game .when{font-family:var(--round);font-weight:700;font-size:13px;color:var(--orange-ink)}
-.game h3{font-family:var(--round);font-weight:800;font-size:22px;margin:4px 0 6px}
-.game p{font-size:14.5px;color:var(--muted);line-height:1.75}
-.game .go{display:inline-block;margin-top:12px;font-family:var(--round);font-weight:700;font-size:15px;color:var(--orange-ink)}
+/* 猫爪脚印：从封面走进书里 */
+.trail{display:block;width:min(70%,520px);height:70px;margin:10px auto 0;color:var(--honey)}
 
-/* 找到我 */
-.contact{text-align:center;padding:110px 0 100px}
-.contact h2{font-family:var(--round);font-weight:800;font-size:clamp(32px,3.6vw,46px)}
-.contact p{color:var(--muted);margin:12px 0 30px}
+/* 第 1 页 */
+.me .panel{background:var(--nose-soft)}
+.me .top{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.chips{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;position:relative;z-index:1}
+.chip{background:#fff;border-radius:24px;padding:16px 16px 14px;border:3px solid transparent;transition:transform .2s,border-color .2s}
+.chip:nth-child(odd){transform:rotate(-1.5deg)}
+.chip:nth-child(even){transform:rotate(1.5deg)}
+.chip:hover{transform:rotate(0) translateY(-4px);border-color:var(--ink)}
+.chip b{display:block;font-family:var(--fun);font-weight:400;font-size:22px;line-height:1.3}
+.chip:nth-child(odd) b{color:var(--scarf)}
+.chip:nth-child(even) b{color:#B9801A}
+.chip span{font-size:14.5px;color:var(--ink-soft);line-height:1.6;display:block;margin-top:4px}
+.seal{position:absolute;right:46px;top:-34px;z-index:3;width:118px;height:118px;border-radius:50%;background:var(--scarf);color:#fff;display:grid;place-items:center;text-align:center;font-family:var(--fun);font-size:19px;line-height:1.25;transform:rotate(12deg);box-shadow:0 6px 0 rgba(75,49,41,.15);border:4px dashed #fff;outline:4px solid var(--scarf)}
+.line-up{position:relative;margin-top:56px;background:#fff;border-radius:36px;padding:40px 40px 22px}
+.line-up img{width:100%}
+.labels{position:relative;height:34px;margin-top:6px}
+.labels span{position:absolute;transform:translateX(-50%);font-family:var(--fun);font-size:18px;white-space:nowrap;background:var(--honey-soft);padding:0 12px;border-radius:999px}
+.cap{font-size:15.5px;color:var(--ink-soft);margin-top:14px;text-align:center}
 
-footer{padding:0 0 50px;color:var(--muted);font-size:14px}
-footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;border-top:1px solid var(--line);padding-top:28px}
+/* 第 2 页 */
+.head-c{text-align:center}
+.habits{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:10px}
+.habit{position:relative;border-radius:36px;padding:30px 30px 32px;background:#fff;border:3px solid var(--ink);box-shadow:6px 7px 0 var(--honey-soft)}
+.habit:nth-child(1){transform:rotate(-1.2deg)}
+.habit:nth-child(2){transform:rotate(1deg) translateY(16px);box-shadow:6px 7px 0 var(--nose-soft)}
+.habit:nth-child(3){transform:rotate(-.8deg)}
+.habit h3{font-family:var(--fun);font-weight:400;font-size:64px;line-height:1;width:104px;height:104px;border-radius:var(--blob);display:grid;place-items:center;margin-bottom:16px;color:#fff;background:var(--scarf)}
+.habit:nth-child(2) h3{background:var(--honey);color:var(--ink)}
+.habit:nth-child(3) h3{background:var(--nose)}
+.habit p{font-size:16.5px}
+.face{margin-top:72px;text-align:center}
+.face .bubble{font-size:clamp(20px,2.3vw,26px);max-width:30em;text-align:left;box-shadow:6px 7px 0 var(--honey-soft)}
+.face .bubble::after{left:50%;margin-left:-11px}
 
-.reveal{transition:opacity .9s ease,transform .9s ease}
-.anim .reveal{opacity:0;transform:translateY(28px)}
+/* 第 3 页 */
+.family .panel{background:var(--honey-soft)}
+.pals{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:14px}
+.pal{background:#fff;border-radius:36px;padding:30px;display:grid;grid-template-columns:170px 1fr;gap:24px;align-items:center;position:relative;z-index:1}
+.pal .ph{position:relative;aspect-ratio:170/230}
+.pal .ph::before{content:"";position:absolute;left:0;right:0;bottom:4%;height:72%;border-radius:var(--blob)}
+.pal:nth-child(1) .ph::before{background:var(--honey-soft)}
+.pal:nth-child(2) .ph::before{background:var(--nose-soft)}
+.pal .ph img{position:relative;height:100%;width:auto;margin:0 auto}
+.pal h3{font-family:var(--fun);font-weight:400;font-size:34px;line-height:1.2}
+.pal .who{display:inline-block;white-space:nowrap;font-size:14px;font-weight:600;margin:6px 0 10px;padding:1px 12px;border-radius:999px}
+.pal:nth-child(1) .who{background:var(--honey-soft);color:#94640A}
+.pal:nth-child(2) .who{background:var(--nose-soft);color:#B0384F}
+.pal p{font-size:16.5px}
+.height{margin-top:40px}
+.height.line-up{padding-left:70px}
+.ruler{position:absolute;left:24px;top:34px;bottom:62px;width:22px;border-radius:8px;background:repeating-linear-gradient(to top,var(--honey) 0 2px,transparent 2px 14px),var(--honey-soft)}
+
+/* 第 4 页 */
+.games-p .panel{background:var(--nose-soft)}
+.dream{display:grid;grid-template-columns:1fr 1.05fr;gap:30px;align-items:center}
+.dream .leap{position:relative;z-index:1;filter:drop-shadow(0 16px 16px rgba(176,56,79,.2))}
+.games{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:40px;position:relative;z-index:1}
+.game{display:grid;grid-template-columns:132px 1fr;gap:20px;align-items:center;background:#fff;border-radius:32px;padding:16px;text-decoration:none;border:3px solid var(--ink);box-shadow:0 7px 0 var(--ink);transition:transform .2s,box-shadow .2s}
+.game:hover{transform:translateY(-4px) rotate(-.6deg);box-shadow:0 11px 0 var(--ink)}
+.game:active{transform:translateY(4px);box-shadow:0 3px 0 var(--ink)}
+.game img{border-radius:20px;aspect-ratio:3/4;object-fit:cover;width:100%}
+.game .when{display:inline-block;font-size:12.5px;font-weight:600;padding:0 10px;border-radius:999px}
+.game:nth-child(1) .when{background:var(--honey-soft);color:#94640A}
+.game:nth-child(2) .when{background:var(--ink);color:var(--paper)}
+.game h3{font-family:var(--fun);font-weight:400;font-size:26px;line-height:1.3;margin:6px 0 4px}
+.game p{font-size:15px;color:var(--ink-soft);line-height:1.75}
+.game .go{display:inline-block;margin-top:10px;font-family:var(--fun);font-size:18px;color:var(--scarf)}
+.cast{display:flex;justify-content:center;align-items:flex-end;gap:26px;margin-top:44px;flex-wrap:wrap;position:relative;z-index:1}
+.cast figure{text-align:center}
+.cast img{height:92px;width:auto;margin:0 auto;transition:transform .3s cubic-bezier(.3,1.7,.5,1)}
+.cast figure:hover img{transform:translateY(-10px) rotate(-4deg)}
+.cast figcaption{font-family:var(--fun);font-size:16px;margin-top:4px}
+.cast .note{flex-basis:100%;text-align:center;color:var(--ink-soft);font-size:15px}
+
+/* 封底：一整块围巾红 */
+.back .panel{background:var(--scarf);color:#fff;text-align:center;padding:70px 40px 64px;overflow:hidden}
+.back .folio{box-shadow:3px 3px 0 var(--scarf-deep)}
+.back h2{margin-top:14px}
+.back p{color:rgba(255,255,255,.88);margin-bottom:30px;position:relative;z-index:1}
+.back .btn{background:var(--paper);color:var(--ink);position:relative;z-index:1}
+.peek{position:absolute;right:6%;bottom:-40px;width:120px;transform:rotate(-8deg);z-index:0}
+footer{padding:10px 0 46px;color:var(--ink-soft);font-size:14.5px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+.reveal{transition:opacity .7s ease,transform .7s cubic-bezier(.3,1.4,.5,1)}
+.anim .reveal{opacity:0;transform:translateY(26px)}
 .anim .reveal.in{opacity:1;transform:none}
 
-@media (max-width:960px){
-  .wrap{padding:0 22px}
-  .hero-in{grid-template-columns:1fr;text-align:center;padding-top:110px;gap:10px}
-  .hero p{margin:0 auto}.cta{justify-content:center}
-  .flyer img{width:100%;margin-left:0}
-  .moon{width:56px;height:56px;left:auto;right:8%;top:12%}
-  .about{grid-template-columns:minmax(0,1fr);gap:44px}
-  .parade figure{flex:1 1 0;min-width:0}
-  .parade figure img{width:100%;height:auto;max-height:150px;object-fit:contain}
-  .daily,.games{grid-template-columns:1fr}
-  section{padding:84px 0}
-  nav ul{gap:18px;font-size:14px}
+@media (max-width:980px){
+  .wrap{padding:0 20px}
+  .panel{padding:56px 28px;border-radius:36px}
+  .cover .wrap,.me .top,.dream{grid-template-columns:minmax(0,1fr)}
+  .cover{padding:20px 0 30px}
+  .cover .wrap{gap:30px}
+  .side{width:min(86%,380px)}
+  .stage .bubble{left:-8%}
+  .chips{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .seal{right:18px;top:-40px;width:96px;height:96px;font-size:16px}
+  .habits{grid-template-columns:minmax(0,1fr);gap:22px}
+  .habit:nth-child(2){transform:rotate(1deg)}
+  .habit{display:grid;grid-template-columns:84px minmax(0,1fr);gap:18px;align-items:center;padding:22px}
+  .habit h3{width:84px;height:84px;font-size:50px;margin:0}
+  .pals,.games{grid-template-columns:minmax(0,1fr)}
+  .page{padding:60px 0}
+  .line-up{padding:26px 18px 16px;border-radius:26px}
+  .height.line-up{padding-left:44px}
+  .ruler{left:12px;width:16px;top:24px;bottom:50px}
+  .labels span{font-size:14px;padding:0 8px}
 }
-@media (max-width:520px){
-  nav ul{gap:12px;font-size:13.5px}
-  .parade{gap:4px}
-  .stage{padding:40px 14px 26px}
-  .game{grid-template-columns:110px 1fr}
-  .game .body{padding:20px 18px}
+@media (max-width:640px){
+  .bar .wrap{height:auto;flex-direction:column;align-items:flex-start;gap:4px;padding-top:10px;padding-bottom:8px}
+  .toc{gap:2px;font-size:16px;flex-wrap:wrap;margin-left:-10px}
+  .toc a{padding:2px 10px}
+  .brand{font-size:22px}
+  .pal{grid-template-columns:110px minmax(0,1fr);gap:14px;padding:22px 18px}
+  .pal h3{font-size:28px}
+  .game{grid-template-columns:96px minmax(0,1fr);gap:14px;padding:12px}
+  .game h3{font-size:21px}
+  .labels{height:28px}
+  .labels span{font-size:12px;padding:0 6px}
+  .cast{gap:12px}
+  .cast img{height:62px}
+  .stage .bubble{font-size:17px;left:-4%}
+  .meter .row{font-size:19px;gap:8px}
+  .cover .doodle{display:none}
+  .trail{height:54px}
+  .peek{width:72px;right:-4px;bottom:-26px}
+  .back .panel{padding-bottom:80px}
+}
+@media (max-width:360px){
+  .chips{grid-template-columns:minmax(0,1fr)}
+  .habit{grid-template-columns:minmax(0,1fr)}
+  .pal{grid-template-columns:minmax(0,1fr);text-align:center}
+  .pal .ph{max-width:140px;margin:0 auto}
 }
 @media (prefers-reduced-motion:reduce){
   *{transition:none!important;animation:none!important;scroll-behavior:auto!important}
@@ -143,107 +255,233 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="paw" viewBox="0 0 64 64"><g fill="currentColor"><ellipse cx="32" cy="42" rx="15" ry="13"/><circle cx="14" cy="26" r="7"/><circle cx="25" cy="14" r="7"/><circle cx="39" cy="14" r="7"/><circle cx="50" cy="26" r="7"/></g></symbol>
+  <symbol id="paw" viewBox="0 0 64 64"><g fill="currentColor"><ellipse cx="32" cy="42" rx="14" ry="12"/><ellipse cx="14" cy="27" rx="6.5" ry="7.5"/><ellipse cx="25" cy="15" rx="6.5" ry="7.5"/><ellipse cx="39" cy="15" rx="6.5" ry="7.5"/><ellipse cx="50" cy="27" rx="6.5" ry="7.5"/></g></symbol>
+  <symbol id="heart" viewBox="0 0 32 32"><path fill="currentColor" d="M16 29s-12-7.6-12-16.2C4 8.6 7.2 5.5 11 5.5c2.4 0 4 1.2 5 2.9 1-1.7 2.6-2.9 5-2.9 3.8 0 7 3.1 7 7.3C28 21.4 16 29 16 29z"/></symbol>
+  <symbol id="star" viewBox="0 0 32 32"><path fill="currentColor" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" d="M16 3.5l3.6 7.6 8.2 1-6 5.7 1.6 8.2L16 22l-7.4 4 1.6-8.2-6-5.7 8.2-1z"/></symbol>
 </svg>
 
-<nav aria-label="主导航">
+<div class="bar">
   <div class="wrap">
-    <a class="logo" href="#top"><svg><use href="#paw"/></svg>皮妞妞</a>
-    <ul>
-      <li><a href="#about">关于我</a></li>
-      <li><a href="#daily">在做的事</a></li>
-      <li><a href="#works">作品</a></li>
-      <li><a href="#contact">找到我</a></li>
-    </ul>
+    <a class="brand" href="#top"><svg aria-hidden="true"><use href="#paw"/></svg>皮妞妞</a>
+    <nav aria-label="目录">
+      <ul class="toc">
+        <li><a href="#me">我是谁</a></li>
+        <li><a href="#habits">三件事</a></li>
+        <li><a href="#family">家里</a></li>
+        <li><a href="#games">小游戏</a></li>
+      </ul>
+    </nav>
   </div>
-</nav>
+</div>
 
-<header class="hero" id="top">
-  <div class="stars" aria-hidden="true"></div>
-  <div class="moon" aria-hidden="true"></div>
-  <div class="city" aria-hidden="true"></div>
-  <div class="wrap hero-in">
-    <div>
-      <div class="hi">你好呀，我是</div>
+<header class="cover" id="top">
+  <span class="doodle bob" style="left:4%;top:10%;width:30px;height:30px;color:var(--honey);--r:10deg" aria-hidden="true"><svg><use href="#star"/></svg></span>
+  <span class="doodle bob" style="left:44%;top:12%;width:22px;height:22px;color:var(--nose);animation-delay:-2s" aria-hidden="true"><svg><use href="#heart"/></svg></span>
+  <div class="wrap">
+    <div style="position:relative;z-index:1">
+      <div class="say">一只猫写的绘本</div>
       <h1>皮妞妞</h1>
-      <div class="tag">分享<span>毛孩子</span>的日常，<br>也用 AI 给它们拍<span>小剧场</span>。</div>
-      <p>这里是我的小角落：萌宠分享、萌宠短视频、好用的工具，还有我自己做的萌宠小游戏。</p>
-      <div class="cta"><a class="btn" href="#about">认识我</a><a class="btn light" href="#works">看看作品</a></div>
+      <p class="line1">我长了一张不好惹的脸。</p>
+      <p class="line2">其实，一摸就翻肚皮！</p>
+      <p class="intro">这本书我口述，铲屎官代笔。里面有我，有家里另外两位，还有铲屎官做的两个小游戏。</p>
+      <a class="btn" href="#me">翻开看看</a>
     </div>
-    <div class="flyer"><img src="img/leap.webp" alt="女孩骑在系着红围巾的大橘猫背上，橘猫腾空飞奔" width="1100" height="722"></div>
+    <div class="side">
+      <div class="stage" id="stage">
+        <div class="disc" aria-hidden="true"></div>
+        <div class="disc2" aria-hidden="true"></div>
+        <div class="bubble" id="say" aria-live="polite">别惹我。</div>
+        <button class="pet" id="pet" type="button" aria-label="摸摸皮妞妞" aria-describedby="meter-label"><img src="img/niu-cut.webp" alt="皮妞妞：黑金渐层长毛猫，系着红围巾站着，大松鼠尾竖在身后" width="509" height="900"></button>
+        <div class="hearts" aria-hidden="true">
+          <i style="left:28%;top:32%"><svg><use href="#heart"/></svg></i>
+          <i style="left:62%;top:22%;animation-delay:.12s"><svg><use href="#heart"/></svg></i>
+          <i style="left:46%;top:12%;animation-delay:.24s"><svg><use href="#heart"/></svg></i>
+          <i style="left:74%;top:40%;animation-delay:.36s"><svg><use href="#heart"/></svg></i>
+          <i style="left:18%;top:16%;animation-delay:.48s"><svg><use href="#heart"/></svg></i>
+        </div>
+      </div>
+      <div class="meter">
+        <div class="row">
+          <span class="end soft-end" aria-hidden="true">软</span>
+          <div class="track" id="meter" role="meter" aria-label="凶度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" aria-valuetext="凶度 100" style="--m:1">
+            <div class="fill"></div>
+            <div class="ticks" aria-hidden="true"><i></i><i></i><i></i></div>
+          </div>
+          <span class="end mean" aria-hidden="true">凶</span>
+        </div>
+        <p class="label" id="meter-label">凶度 <b id="meter-n">100</b> · 摸我一下，掉一格</p>
+      </div>
+    </div>
   </div>
 </header>
 
+<svg class="trail" viewBox="0 0 520 70" aria-hidden="true">
+  <use href="#paw" x="0" y="30" width="26" height="26" transform="rotate(80 13 43)" opacity=".45"/>
+  <use href="#paw" x="90" y="6" width="26" height="26" transform="rotate(80 103 19)" opacity=".55"/>
+  <use href="#paw" x="190" y="30" width="26" height="26" transform="rotate(80 203 43)" opacity=".65"/>
+  <use href="#paw" x="290" y="6" width="26" height="26" transform="rotate(80 303 19)" opacity=".75"/>
+  <use href="#paw" x="390" y="30" width="26" height="26" transform="rotate(80 403 43)" opacity=".85"/>
+  <use href="#paw" x="490" y="6" width="26" height="26" transform="rotate(80 503 19)"/>
+</svg>
+
 <main>
-  <section id="about" aria-labelledby="about-h">
-    <div class="wrap about">
-      <div class="text reveal">
-        <div class="title"><small>关于我</small><h2 id="about-h">喜欢毛孩子，<br>也喜欢捣鼓工具</h2></div>
-        <p>我是皮妞妞，也叫<b>傲娇的皮妞妞</b>。这个站放着我平时在做的事。</p>
-        <p>我会分享萌宠的日常，用 AI 给毛孩子拍小剧场，也把做内容用到的好工具整理出来。偶尔脑洞大开，就把它们画进小游戏里：早上骑着它去上班，晚上它来接你回家。</p>
-        <div class="likes"><span>🐱 萌宠分享</span><span>🎬 萌宠短视频</span><span>🧰 工具使用</span><span>🎮 小游戏</span></div>
+  <section class="page me" id="me" aria-labelledby="me-h">
+    <div class="wrap">
+      <div class="panel reveal">
+        <div class="seal" aria-label="鉴定结果：撒娇精">鉴定<br>撒娇精</div>
+        <div class="top">
+          <div>
+            <span class="folio"><svg aria-hidden="true"><use href="#paw"/></svg>第 1 页</span>
+            <h2 id="me-h">我是谁</h2>
+            <p class="lead">我叫皮妞妞，小名妞妞，也叫皮皮。黑金渐层长毛猫，一两岁。</p>
+            <p class="lead">常有人以为我是矮脚猫。<span class="hl">不是！</span>腿是正常长的，只是毛太多，裹得像穿了条毛绒裤。</p>
+          </div>
+          <div class="chips">
+            <div class="chip"><b>飞机耳</b><span>耳朵往两边平着长</span></div>
+            <div class="chip"><b>黑眼线</b><span>琥珀金绿的圆眼睛，自带一圈</span></div>
+            <div class="chip"><b>粉鼻头</b><span>砖粉色，还描了黑边</span></div>
+            <div class="chip"><b>狮子围脖</b><span>脖子上一大圈毛</span></div>
+            <div class="chip"><b>松鼠尾</b><span>走路时竖得高高的</span></div>
+            <div class="chip"><b>同手同脚</b><span>走路有一点点</span></div>
+          </div>
+        </div>
+        <figure class="line-up">
+          <img src="img/niu4-cut.webp" alt="皮妞妞的四视图：正面、左侧、背面、右侧" width="1200" height="356" loading="lazy">
+          <div class="labels" aria-hidden="true"><span style="left:7%">正面</span><span style="left:31%">左边</span><span style="left:58%">背面</span><span style="left:85%">右边</span></div>
+          <figcaption class="cap">铲屎官说这叫四视图，我说这叫被拍了四次。</figcaption>
+        </figure>
       </div>
-      <div class="stage reveal" aria-label="小游戏里的毛孩子们">
-        <div class="cap">小游戏里的毛孩子们</div>
-        <div class="parade">
+    </div>
+  </section>
+
+  <section class="page" id="habits" aria-labelledby="habits-h">
+    <div class="wrap">
+      <div class="head-c reveal">
+        <span class="folio"><svg aria-hidden="true"><use href="#paw"/></svg>第 2 页</span>
+        <h2 id="habits-h">我每天做的三件事</h2>
+      </div>
+      <div class="habits">
+        <div class="habit reveal"><h3>吃</h3><p>哪里有香味，我就往哪里凑。吃到烤红薯，我会说：还行。另一半，我用爪子按住。</p></div>
+        <div class="habit reveal"><h3>瘫</h3><p>客厅地板就是床。肚皮朝上，四只脚朝天，谁路过都不起来。</p></div>
+        <div class="habit reveal"><h3>蹭</h3><p>想吃冻干的时候，我先用脑袋蹭腿，再软软地叫一声。铲屎官拒绝不了。</p></div>
+      </div>
+      <div class="face reveal"><p class="bubble">我天生一张鳌拜脸，看着像在生气。其实没有，我只是脸长这样。不信你摸摸我下巴。</p></div>
+    </div>
+  </section>
+
+  <section class="page family" id="family" aria-labelledby="family-h">
+    <div class="wrap">
+      <div class="panel reveal">
+        <span class="folio"><svg aria-hidden="true"><use href="#paw"/></svg>第 3 页</span>
+        <h2 id="family-h">家里另外两位</h2>
+        <div class="pals">
+          <article class="pal">
+            <div class="ph"><img src="img/guai-cut.webp" alt="乖乖：橘白相间的大猫，戴米色毛线帽、系灰蓝围巾" width="333" height="640" loading="lazy"></div>
+            <div>
+              <h3>乖乖</h3>
+              <span class="who">橘白大猫 · 8 岁</span>
+              <p>家里资历最老，个子也比我高。可胆子最小，快递箱挪一下，它就退到墙角去。认准的饭盆位置，谁也挪不动。</p>
+            </div>
+          </article>
+          <article class="pal">
+            <div class="ph"><img src="img/tutu-cut.webp" alt="熊图图：沙黄色土松小狗，戴墨绿毛线帽、系芥末黄围巾，张嘴笑" width="300" height="640" loading="lazy"></div>
+            <div>
+              <h3>熊图图</h3>
+              <span class="who">土松小狗 · 三四个月</span>
+              <p>一片落叶飘过去，它能傻乐半天。跑起来四只脚都离地。最近还睡上了我们的猫抓板，大概以为自己也是猫。</p>
+            </div>
+          </article>
+        </div>
+        <figure class="line-up height">
+          <div class="ruler" aria-hidden="true"></div>
+          <img src="img/three-cut.webp" alt="三只同比例对照：皮妞妞肩高 28 厘米，乖乖 32 厘米，熊图图 40 厘米" width="1200" height="371" loading="lazy">
+          <div class="labels" aria-hidden="true"><span style="left:15%">我 28 厘米</span><span style="left:47%">乖乖 32 厘米</span><span style="left:84%">熊图图 40 厘米</span></div>
+          <figcaption class="cap">量身高那天。我最矮，但我毛最多。</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="page games-p" id="games" aria-labelledby="games-h">
+    <div class="wrap">
+      <div class="panel reveal">
+        <div class="dream">
+          <div>
+            <span class="folio"><svg aria-hidden="true"><use href="#paw"/></svg>第 4 页</span>
+            <h2 id="games-h">铲屎官做的小游戏</h2>
+            <p class="lead">一共两个，主角都是一只系红围巾的大橘猫。<span class="hl">不是我。</span></p>
+            <p class="lead">我有意见，但还是推荐一下：不用下载，不用登录，点开就能玩。</p>
+          </div>
+          <img class="leap" src="img/leap.webp" alt="游戏插画：女孩骑在系红围巾的大橘猫背上，橘猫腾空飞奔" width="1100" height="722" loading="lazy">
+        </div>
+        <div class="games">
+          <a class="game" href="https://pi-niuniu.github.io/ride-pet-to-work/">
+            <img src="img/game-morning.webp" alt="《骑着萌宠去上班》游戏封面" width="420" height="560" loading="lazy">
+            <div><span class="when">早上 · 一局约 30 秒</span><h3>骑着萌宠去上班</h3><p>孵出今天的坐骑，躲开“在吗？”消息轰炸，赶在电梯关门前打卡。</p><span class="go">去玩 →</span></div>
+          </a>
+          <a class="game" href="https://pi-niuniu.github.io/pet-pickup-after-work/">
+            <img src="img/game-night.webp" alt="《萌宠来接你下班》游戏封面" width="420" height="560" loading="lazy">
+            <div><span class="when">晚上 · 一局约 1 分钟</span><h3>萌宠来接你下班</h3><p>大橘猫来公司门口接你，一路兜风吃小鱼干，到家拍一张合影。</p><span class="go">去玩 →</span></div>
+          </a>
+        </div>
+        <div class="cast" aria-label="游戏里的其他角色">
           <figure><img src="img/frog_front.webp" alt="戴斗笠的小青蛙" width="308" height="320" loading="lazy"><figcaption>小青蛙</figcaption></figure>
-          <figure><img src="img/cat_front.webp" alt="系红围巾的橘猫" width="260" height="320" loading="lazy"><figcaption>橘猫</figcaption></figure>
+          <figure><img src="img/cat_front.webp" alt="系红围巾的橘猫" width="260" height="320" loading="lazy"><figcaption>大橘</figcaption></figure>
           <figure><img src="img/gpanda_front.webp" alt="大熊猫" width="241" height="320" loading="lazy"><figcaption>大熊猫</figcaption></figure>
           <figure><img src="img/manul_front.webp" alt="兔狲" width="304" height="320" loading="lazy"><figcaption>兔狲</figcaption></figure>
+          <p class="note">游戏里还有这几位。都没我好看。</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="daily" aria-labelledby="daily-h" style="padding-top:20px">
+  <section class="page back" id="contact" aria-labelledby="back-h">
     <div class="wrap">
-      <div class="title c reveal"><small>在做的事</small><h2 id="daily-h">都和毛孩子有关</h2></div>
-      <div class="daily">
-        <div class="card reveal"><div class="ico" aria-hidden="true">🐾</div><h3>萌宠分享</h3><p>猫猫狗狗的日常、养宠的小经验，还有路上遇到的可爱瞬间。</p><ul><li>日常</li><li>养宠经验</li><li>可爱瞬间</li></ul></div>
-        <div class="card reveal"><div class="ico" aria-hidden="true">🎬</div><h3>萌宠短视频</h3><p>用 AI 给毛孩子拍小剧场：它会说话、会上班，还会来接你回家。</p><ul><li>AI 小剧场</li><li>配音</li><li>剪辑</li></ul></div>
-        <div class="card reveal"><div class="ico" aria-hidden="true">🧰</div><h3>工具使用</h3><p>做图、剪视频、配音用到的好用工具，怎么上手、哪里收费都写清楚。</p><ul><li>做图</li><li>剪视频</li><li>配音</li></ul></div>
+      <div class="panel reveal">
+        <img class="peek" src="img/niu-cut.webp" alt="" width="509" height="900" loading="lazy">
+        <span class="folio"><svg aria-hidden="true"><use href="#paw"/></svg>封底</span>
+        <h2 id="back-h">这本书先写到这里</h2>
+        <p>想看铲屎官做的别的东西，去 GitHub 找 pi-niuniu。</p>
+        <a class="btn" href="https://github.com/pi-niuniu">GitHub · pi-niuniu</a>
       </div>
     </div>
   </section>
-
-  <section id="works" aria-labelledby="works-h" style="padding-top:20px">
-    <div class="wrap">
-      <div class="title c reveal"><small>作品</small><h2 id="works-h">做过的萌宠小游戏</h2><p>不用下载、不用登录，点开就能玩。</p></div>
-      <div class="games">
-        <a class="game reveal" href="https://pi-niuniu.github.io/ride-pet-to-work/">
-          <div class="thumb"><img src="img/thumb-morning.webp" alt="清晨的街道" loading="lazy" width="300" height="533"></div>
-          <div class="body"><div class="when">☀ 早上 · 约 30 秒一局</div><h3>骑着萌宠去上班</h3><p>孵出今天的坐骑，躲开“在吗？”消息轰炸，赶在电梯关门前打卡。</p><span class="go">开始试玩 →</span></div>
-        </a>
-        <a class="game reveal" href="https://pi-niuniu.github.io/pet-pickup-after-work/">
-          <div class="thumb"><img src="img/thumb-night.webp" alt="夜晚的江边大道" loading="lazy" width="300" height="533"></div>
-          <div class="body"><div class="when">☾ 晚上 · 约 1 分钟一局</div><h3>萌宠来接你下班</h3><p>大橘猫来公司门口接你，一路兜风吃小鱼干，到家拍一张合影。</p><span class="go">开始试玩 →</span></div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <div class="contact" id="contact">
-    <div class="wrap">
-      <h2>找到我</h2>
-      <p>有好玩的毛孩子故事、好用的工具，欢迎来分享。</p>
-      <a class="btn" href="https://github.com/pi-niuniu">GitHub · pi-niuniu</a>
-    </div>
-  </div>
 </main>
 
 <footer>
   <div class="wrap">
     <span>© 2026 皮妞妞</span>
-    <span>今天也被毛孩子治愈了。</span>
+    <span>猫口述，铲屎官代笔。</span>
   </div>
 </footer>
 
 <script>
 (function(){
+  /* 凶度计：每摸一下掉 25，停手 4 秒后一格一格涨回去 */
+  var stage=document.getElementById('stage'),pet=document.getElementById('pet'),say=document.getElementById('say'),
+      meter=document.getElementById('meter'),num=document.getElementById('meter-n');
+  var lines={100:'别惹我。',75:'……哼。',50:'好吧，摸吧。',25:'再摸一下下。',0:'翻肚皮了！'};
+  var v=100,idle,decay,bt,purrT;
+  function show(){
+    meter.style.setProperty('--m',v/100);
+    meter.setAttribute('aria-valuenow',v);meter.setAttribute('aria-valuetext','凶度 '+v);
+    num.textContent=v;say.textContent=lines[v];
+    say.classList.remove('pop');void say.offsetWidth;say.classList.add('pop');
+    stage.classList.toggle('soft',v===0);
+  }
+  function burst(){stage.classList.remove('burst');void stage.offsetWidth;stage.classList.add('burst');clearTimeout(bt);bt=setTimeout(function(){stage.classList.remove('burst')},1700)}
+  pet.addEventListener('click',function(){
+    clearTimeout(idle);clearInterval(decay);
+    pet.classList.remove('purr');void pet.offsetWidth;pet.classList.add('purr');
+    clearTimeout(purrT);purrT=setTimeout(function(){pet.classList.remove('purr')},500);
+    if(v>0){v-=25;show()}else{say.textContent='呼噜呼噜……'}
+    if(v===0)burst();
+    idle=setTimeout(function(){decay=setInterval(function(){if(v>=100){clearInterval(decay);return}v+=25;show()},1400)},4000);
+  });
   var els=document.querySelectorAll('.reveal');
   if(!('IntersectionObserver' in window)||(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){return}
   document.documentElement.classList.add('anim');
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1});
   [].forEach.call(els,function(e){io.observe(e)});
 })();
 </script>
